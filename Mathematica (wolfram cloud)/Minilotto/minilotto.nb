@@ -1,0 +1,814 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[{RowBox[{RowBox[{"dane"," ","="," ",RowBox[
+{"Import","[",RowBox[{"\"http://mbnet.com.pl/el.xls\"",",","\"Data\""}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"dane"," ","="," ",RowBox[{"Flatten","[",RowBox[{"dane",",","1"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"daty"," ","="," ",RowBox[{RowBox[{RowBox[{"Take","[",RowBox[{"#",",",RowBox[
+{"{","2","}"}]}],"]"}],"&"}],"/@","dane"}]}],";"}],"\n",RowBox[{RowBox[{"pierwsze"," ","="," ",RowBox[
+{"daty","[",RowBox[{"[","1","]"}],"]"}]}],";"}],"\n",RowBox[{RowBox[{"ostatnie"," ","=",RowBox[
+{"daty","[",RowBox[{"[",RowBox[{"Length","[","daty","]"}],"]"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"ilosc"," ","="," ",RowBox[{"Length","[","dane","]"}]}],";"}],"\n",RowBox[
+{RowBox[{"daty2"," ","="," ",RowBox[{RowBox[{RowBox[{"Last","[","#","]"}],"&"}],"/@","daty"}]}]," ",";"}],"\n",RowBox[
+{RowBox[{"wylos"," ","="," ",RowBox[{"IntegerPart","[",RowBox[{RowBox[{RowBox[{"Drop","[",RowBox[
+{"#",",","2"}],"]"}],"&"}],"/@","dane"}],"]"}]}],";"}],"\n",RowBox[{RowBox[{"wylos2"," ","="," ",RowBox[
+{"Sort","[",RowBox[{RowBox[{RowBox[{"Last","[","#","]"}],"&"}],"/@","wylos"}]," ","]"}]}],";"}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"czescA"," ","="," ",RowBox[{"Graphics","[",RowBox[{"Text","[",RowBox[
+{"Style","[",RowBox[{RowBox[{"StringJoin","[",RowBox[{"\"Analiza wynik\[OAcute]w Mini Lotto.\\n\\nJedno losowanie to 5 numer\[OAcute]w spo\:015br\[OAcute]d 42.\\n\\nPierwsze losowanie: \"",",","pierwsze",",","\"\\nOstatnie losowanie: \"",",","ostatnie",",","\n","\"\\nLiczba losowa\:0144: \"",",",RowBox[
+{"ToString","[","ilosc","]"}]}],"]"}],",","Medium"}],"]"}],"]"}],"]"}]}],"\n"}]}],
+"Input",ExpressionUUID -> "49bf3505-2b7b-494f-96ca-da06ac18d5e9",CellLabel -> "In[313]:= "],Cell[
+BoxData[
+GraphicsBox[InsetBox[FormBox[StyleBox["\"Analiza wynik\[OAcute]w Mini Lotto.\\n\\nJedno losowanie to 5 numer\[OAcute]w spo\:015br\[OAcute]d 42.\\n\\nPierwsze losowanie: 03.01.1979\\nOstatnie losowanie: 07.11.2019\\nLiczba losowa\:0144: 4811\"",
+Medium,StripOnInput -> False],TraditionalForm],{0,0}],ExpressionUUID -> "7e9a4acb-2a44-4962-bcba-27cc60285d00"],
+StandardForm],"Output",ExpressionUUID -> "2cc98d99-ce90-4529-b7e2-630351a7eb53",CellLabel -> "Out[322]= "]},
+Open],ExpressionUUID -> "ac3e5042-1e4a-46f8-bcb2-6d13957620ac"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{RowBox[{"Tally","[","wylos2","]"}],";"}],"\n",RowBox[{RowBox[
+{"pary"," ","="," ",RowBox[{"Flatten","[",RowBox[{RowBox[{"Table","[",RowBox[{RowBox[
+{"Subsets","[",RowBox[{RowBox[{"wylos","[",RowBox[{"[","i","]"}],"]"}],",",RowBox[
+{"{","2","}"}]}],"]"}],",",RowBox[{"{",RowBox[{"i",","," ","1",","," ",RowBox[{"Length","[","wylos","]"}]}],"}"}]}],"]"}],",","1"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"liczbapar"," ","="," ",RowBox[{"Tally","[","pary","]"}]}],";"}],"\n",RowBox[
+{RowBox[{"r"," ","="," ",RowBox[{RowBox[{"ReverseSortBy","[",RowBox[{"liczbapar",",","Last"}],"]"}],"[",RowBox[
+{"[",RowBox[{"1",";;","12"}],"]"}],"]"}]}],";"}],"\n",RowBox[{RowBox[{"rr"," ","="," ",RowBox[
+{RowBox[{RowBox[{"Last","[","#","]"}],"&"}],"/@","r"}]}],";"}],"\n",RowBox[{RowBox[
+{"dwojki"," ","="," ",RowBox[{RowBox[{RowBox[{"First","[","#","]"}],"&"}],"/@","r"}]}],";"}],"\n",RowBox[
+{RowBox[{"lab","=",RowBox[{"Table","[",RowBox[{RowBox[{"Rotate","[",RowBox[{RowBox[
+{"GraphicsRow","[",RowBox[{RowBox[{"{","\n",RowBox[{RowBox[{"Graphics","[",RowBox[
+{RowBox[{"{",RowBox[{RowBox[{"RGBColor","[","\"#F6D187\"","]"}],",",RowBox[{"Disk","[","]"}],",","Black",",","\n",RowBox[
+{"Rotate","[",RowBox[{RowBox[{"Text","[",RowBox[{RowBox[{"r","[",RowBox[{"[",RowBox[
+{"i",",","1"}],"]"}],"]"}],"[",RowBox[{"[","1","]"}],"]"}],"]"}],",",RowBox[{"270"," ","Degree"}]}],"]"}]}],"}"}],",",RowBox[
+{"ImageSize","\[Rule]","60"}]}],"]"}],",","\n",RowBox[{"Graphics","[",RowBox[{"{",RowBox[
+{RowBox[{"RGBColor","[","\"#F6D187\"","]"}],",",RowBox[{"Disk","[","]"}],",","Black",",","\n",RowBox[
+{"Rotate","[",RowBox[{RowBox[{"Text","[",RowBox[{RowBox[{"r","[",RowBox[{"[",RowBox[
+{"i",",","1"}],"]"}],"]"}],"[",RowBox[{"[","2","]"}],"]"}],"]"}],",",RowBox[{"270"," ","Degree"}]}],"]"}]}],"}"}],"]"}]}],"}"}],",",RowBox[
+{"ImageSize","\[Rule]","60"}]}],"]"}],",","\n",RowBox[{"90"," ","Degree"}]}],"]"}],",",RowBox[
+{"{",RowBox[{"i",",","1",",","12"}],"}"}]}],"]"}]}],";"}],RowBox[{"\n","\n"}],RowBox[
+{"czescB","=",RowBox[{"Labeled","[",RowBox[{RowBox[{"Framed","[",RowBox[{RowBox[{"BarChart","[",RowBox[
+{"rr",","," ",RowBox[{"ImageSize","\[Rule]","400"}],",",RowBox[{"ColorFunction","\[Rule]",RowBox[
+{"ColorData","[","\"LightTerrain\"","]"}]}],",","\n",RowBox[{"PlotRange","\[Rule]",RowBox[
+{"{",RowBox[{"Automatic",",",RowBox[{"{",RowBox[{"0",",","120"}],"}"}]}],"}"}]}],",","\n",RowBox[
+{"ChartLabels"," ","\[Rule]",RowBox[{"Placed","[",RowBox[{RowBox[{"{",RowBox[{"lab",",","rr"}],"}"}],",",RowBox[
+{"{",RowBox[{"Above",",","Center"}],"}"}]}],"]"}]}]}],"]"}],",","\n",RowBox[{"RoundingRadius","\[Rule]","10"}]}],"]"}],",",RowBox[
+{"Framed","[",RowBox[{"\"Najcz\:0119\:015bciej losowane pary liczb:\"",",",RowBox[
+{"RoundingRadius","\[Rule]","10"}]}],"]"}],",","Top"}],"]"}]}]}],"Input",ExpressionUUID -> "8bd3c476-6538-4075-b748-469602818bcf",
+CellLabel -> "In[218]:= "],Cell[
+BoxData[TemplateBox[{FrameBox[GraphicsBox[{{Opacity[
+0],PointBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ogzP2jtfvly2L2KAAjT5zE3rQmueaTjA5QEjzhNq"]]},{{},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.616]]],RGBColor[0.982864,0.7431472,
+0.3262672]],{{Directive[EdgeForm[Directive[Thickness[Small],Opacity[0.616]]],RGBColor[
+0.9,0.9,0.9]],TagBox[TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{0.5498326515433247,0.0},{1.4501673484566755,86.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],
+Function[StatusArea[Slot[1],86]],TagBoxNote -> "86"],StyleBox["86",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[86,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.8252943333333334,0.817198,0.6563806666666666]],TagBox[
+TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{1.549832651543325,0.0},
+{2.4501673484566755,82.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],82]],TagBoxNote -> "82"],StyleBox["82",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[82,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.7282885,0.7247035,0.5508204999999999]],TagBox[
+TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{2.549832651543325,0.0},
+{3.4501673484566755,80.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],80]],TagBoxNote -> "80"],StyleBox["80",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[80,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.7282885,0.7247035,0.5508204999999999]],TagBox[
+TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{3.549832651543325,0.0},
+{4.4501673484566755,80.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],80]],TagBoxNote -> "80"],StyleBox["80",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[80,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.56506075,0.6280235000000001,0.53021925]],TagBox[
+TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{4.5498326515433245,0.0},
+{5.4501673484566755,77.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],77]],TagBoxNote -> "77"],StyleBox["77",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[77,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.5324446666666667,0.6398351666666666,
+0.5903634999999999]],TagBox[TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{5.5498326515433245,0.0},{6.4501673484566755,76.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],
+Function[StatusArea[Slot[1],76]],TagBoxNote -> "76"],StyleBox["76",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[76,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.5324446666666667,0.6398351666666666,
+0.5903634999999999]],TagBox[TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{6.5498326515433245,0.0},{7.4501673484566755,76.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],
+Function[StatusArea[Slot[1],76]],TagBoxNote -> "76"],StyleBox["76",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[76,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.5248389999999999,0.6866953333333333,
+0.6957420000000001]],TagBox[TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{7.5498326515433245,0.0},{8.450167348456675,75.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],
+Function[StatusArea[Slot[1],75]],TagBoxNote -> "75"],StyleBox["75",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[75,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.54938,0.772213,0.848103]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{8.549832651543325,0.0},
+{9.450167348456675,74.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],74]],TagBoxNote -> "74"],StyleBox["74",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[74,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.54938,0.772213,0.848103]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{9.549832651543325,0.0},
+{10.450167348456675,74.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],74]],TagBoxNote -> "74"],StyleBox["74",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[74,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.54938,0.772213,0.848103]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{10.549832651543325,0.0},
+{11.450167348456675,74.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],74]],TagBoxNote -> "74"],StyleBox["74",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[74,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.54938,0.772213,0.848103]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{11.549832651543325,0.0},
+{12.450167348456675,74.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],74]],TagBoxNote -> "74"],StyleBox["74",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[74,{}],"Tooltip"]]]}}},{},{}},{},{InsetBox[FormBox[
+StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["7",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["32",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{1.0,86.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["86",{},StripOnInput -> False],TraditionalForm],{1.0,43.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["15",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["21",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{2.0,82.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["82",{},StripOnInput -> False],TraditionalForm],{2.0,41.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["21",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["36",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{3.0,80.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["80",{},StripOnInput -> False],TraditionalForm],{3.0,40.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["2",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["3",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{4.0,80.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["80",{},StripOnInput -> False],TraditionalForm],{4.0,40.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["24",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["28",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{5.0,77.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["77",{},StripOnInput -> False],TraditionalForm],{5.0,38.5},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["21",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["28",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{6.0,76.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["76",{},StripOnInput -> False],TraditionalForm],{6.0,38.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["5",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["17",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{7.0,76.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["76",{},StripOnInput -> False],TraditionalForm],{7.0,38.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["22",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["28",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{8.0,75.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["75",{},StripOnInput -> False],TraditionalForm],{8.0,37.5},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["27",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["33",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{9.0,74.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["74",{},StripOnInput -> False],TraditionalForm],{9.0,37.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["11",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["34",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{10.0,74.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["74",{},StripOnInput -> False],TraditionalForm],{10.0,37.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["9",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["31",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{11.0,74.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["74",{},StripOnInput -> False],TraditionalForm],{11.0,37.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[RotationBox[GraphicsBox[{{},{{InsetBox[GraphicsBox[
+{RGBColor[0.9647058823529412,0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[
+0],GeometricTransformationBox[InsetBox[FormBox["1",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},
+{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.0,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],InsetBox[GraphicsBox[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],DiskBox[{0,0}],GrayLevel[0],GeometricTransformationBox[
+InsetBox[FormBox["6",TraditionalForm],{0,0}],{{{0,1},{-1,0}},Center}]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{96.0,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60],BoxRotation -> 1.5707963267948966],{},
+StripOnInput -> False],TraditionalForm],Offset[{0,4},{12.0,74.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox["74",{},StripOnInput -> False],TraditionalForm],{12.0,37.0},ImageScaled[
+{0.5,0.5}]]},{},{},{StyleBox[{Antialiasing -> False,{Directive[Thickness[Tiny]],{LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ogzP2jtfvly2L2KAAjT55Qc2uZxI0nSAywMAJdETcg=="]]},StyleBox[
+{},"GraphicsLabel",StripOnInput -> False]},StyleBox[{{Directive[Thickness[Tiny]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8oqKbIkutZjy0L2KAAog8G5DwT0srTi1JZQQyQWIdz8t+vrp1eQ9EmcQBQgYBAM90HSM="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8osxN60Jrnmk4FDFAAUSeDUj4p6UVp5akMgKZILGO52U/X926vAeiTOIAIYMAzOIdBw=="]],{{},{},{},{},{},{},{},{},{},{},{},{},{},{}}},StyleBox[
+{},"GraphicsLabel",StripOnInput -> False]},"GraphicsTicks",StripOnInput -> False]},
+"GraphicsAxes",StripOnInput -> False]}},{DisplayFunction -> Identity,AspectRatio -> NCache[
+Power[GoldenRatio,-1],0.6180339887498948],Axes -> {False,True},AxesLabel -> {None,None},AxesOrigin -> {0.3118259576050577,0.0},CoordinatesToolOptions -> CompressedData[
+"1:eJxTTMoPSmNiYGAoZgESPpnFJQheUGlOajA/kOGSWVyQk1jpVpqXXJKZn5fGCFLBASTgIqgmwOU9U1LzSjJLKhHyAYlFUHkQLzgnvyQTxAMT5OgDKUBzsTCQ4ZxfkJmaEpaYU5o6WF0NAFk5TEk="],FrameLabel -> {{None,None},{None,None}},FrameTicks -> {{Automatic,Automatic},{Automatic,Automatic}},GridLines -> {None,None},GridLinesStyle -> Directive[
+GrayLevel[0.5,0.4]],ImageSize -> 400,PlotRange -> {{All,All},{0,120}},PlotRangePadding -> {{Scaled[
+0.02],Scaled[0.02]},{Scaled[0.02],Scaled[0.05]}},Ticks -> {None,Automatic}},ExpressionUUID -> "803e1639-2507-4101-a239-47896529a8d2"],
+RoundingRadius -> 10,StripOnInput -> False],FrameBox["\"Najcz\:0119\:015bciej losowane pary liczb:\"",
+RoundingRadius -> 10,StripOnInput -> False]},"Labeled",DisplayFunction -> Function[
+GridBox[{{ItemBox[Slot[2],DefaultBaseStyle -> "LabeledLabel"]},{TagBox[ItemBox[PaneBox[
+TagBox[Slot[1],"SkipImageSizeLevel"],Alignment -> {Center,Baseline},BaselinePosition -> Baseline],
+DefaultBaseStyle -> "Labeled"],"SkipImageSizeLevel"]}},GridBoxAlignment -> {"Columns" -> {{Center}},"Rows" -> {{Center}}},
+AutoDelete -> False,GridBoxItemSize -> {"Columns" -> {{Automatic}},"Rows" -> {{Automatic}}},
+BaselinePosition -> {2,1}]],InterpretationFunction -> Function[RowBox[{"Labeled","[",RowBox[
+{Slot[1],",",Slot[2],",","Top"}],"]"}]]],StandardForm],"Output",ExpressionUUID -> "1cb3c404-7fc7-45b5-91f5-0c29914d7242",
+CellLabel -> "Out[225]= "]},Open],ExpressionUUID -> "95187d97-cb52-4661-ae2a-7d4e699dca5a"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{RowBox[{"trojki"," ","="," ",RowBox[{"Flatten","[",RowBox[
+{RowBox[{"Table","[",RowBox[{RowBox[{"Subsets","[",RowBox[{RowBox[{"wylos","[",RowBox[
+{"[","i","]"}],"]"}],",",RowBox[{"{","3","}"}]}],"]"}],",",RowBox[{"{",RowBox[{"i",","," ","1",","," ",RowBox[
+{"Length","[","wylos","]"}]}],"}"}]}],"]"}],",","1"}],"]"}]}],";"}],"\n",RowBox[{RowBox[
+{"tally"," ","="," ",RowBox[{"Tally","[","trojki","]"}]}],";"}],"\n",RowBox[{RowBox[
+{"trzy"," ","="," ",RowBox[{RowBox[{"ReverseSortBy","[",RowBox[{"tally",",","Last"}],"]"}],"[",RowBox[
+{"[",RowBox[{"1",";;","12"}],"]"}],"]"}]}],";"}],"\n",RowBox[{RowBox[{"rrr","="," ",RowBox[
+{RowBox[{RowBox[{"Last","[","#","]"}],"&"}],"/@","trzy"}]}],";"}],"\n",RowBox[{RowBox[
+{"trojeczki"," ","="," ",RowBox[{RowBox[{RowBox[{"First","[","#","]"}],"&"}],"/@","trzy"}]}],";"}],"\n",RowBox[
+{RowBox[{"ab","=",RowBox[{"Table","[",RowBox[{RowBox[{"GraphicsRow","[",RowBox[{RowBox[
+{"{","\n",RowBox[{RowBox[{"Graphics","[",RowBox[{RowBox[{"{",RowBox[{RowBox[{"RGBColor","[","\"#F6D187\"","]"}],",",RowBox[
+{"Disk","[","]"}],",","Black",",","\n",RowBox[{"Text","[",RowBox[{RowBox[{"trojeczki","[",RowBox[
+{"[","i","]"}],"]"}],"[",RowBox[{"[","1","]"}],"]"}],"]"}]}],"}"}],",",RowBox[{"ImageSize","\[Rule]","60"}]}],"]"}],",","\n",RowBox[
+{"Graphics","[",RowBox[{RowBox[{"{",RowBox[{RowBox[{"RGBColor","[","\"#F6D187\"","]"}],",",RowBox[
+{"Disk","[","]"}],",","Black",",","\n",RowBox[{"Text","[",RowBox[{RowBox[{"trojeczki","[",RowBox[
+{"[","i","]"}],"]"}],"[",RowBox[{"[","2","]"}],"]"}],"]"}]}],"}"}],",",RowBox[{"ImageSize","\[Rule]","60"}]}],"]"}],",","\n",RowBox[
+{"Graphics","[",RowBox[{"{",RowBox[{RowBox[{"RGBColor","[","\"#F6D187\"","]"}],",",RowBox[
+{"Disk","[","]"}],",","Black",",","\n",RowBox[{"Text","[",RowBox[{RowBox[{"trojeczki","[",RowBox[
+{"[","i","]"}],"]"}],"[",RowBox[{"[","3","]"}],"]"}],"]"}]}],"}"}],"]"}]}],"}"}],",",RowBox[
+{"ImageSize","\[Rule]","60"}]}],"]"}],",","\n",RowBox[{"{",RowBox[{"i",",","1",",","12"}],"}"}]}],"]"}]}],";"}],RowBox[
+{"\n","\n"}],RowBox[{"czescC","=",RowBox[{"BarChart","[",RowBox[{"rrr",",",RowBox[
+{"ImageSize","\[Rule]","450"}],",","\n",RowBox[{"PlotLabel"," ","\[Rule]"," ",RowBox[
+{"Framed","[","\"Najcz\:0119\:015bciej losowane tr\[OAcute]jki liczb\"","]"}]}],",","\n",RowBox[
+{"PlotRange","\[Rule]",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"0",",","15"}],"}"}],",","Automatic"}],"}"}]}],",","\n",RowBox[
+{"BarOrigin","\[Rule]","Left"}],",",RowBox[{"ColorFunction","\[Rule]",RowBox[{"ColorData","[","\"ArmyColors\"","]"}]}],",","\n",RowBox[
+{"ChartLabels","\[Rule]",RowBox[{"Placed","[",RowBox[{RowBox[{"{",RowBox[{"rrr",","," ","ab"}],"}"}],",",RowBox[
+{"{",RowBox[{"Center",",","After"}],"}"}]}],"]"}]}],",",RowBox[{"LabelingSize","\[Rule]","60"}]}],"]"}]}]}],
+"Input",ExpressionUUID -> "dd76f1b4-82ec-4e27-902a-452b7ed5c800",CellLabel -> "In[277]:= "],Cell[
+BoxData[
+GraphicsBox[{{Opacity[0],PointBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IgYoKLIpDtwd8viyPS55P/H4V8zPNRwAqPIRgg=="]]},{{},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.616]]],RGBColor[0.982864,0.7431472,
+0.3262672]],{{Directive[EdgeForm[Directive[Thickness[Small],Opacity[0.616]]],RGBColor[
+0.762737,0.757717,0.654841]],TagBox[TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[
+CurrentValue["MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[
+0.66]}],{},{}],RectangleBox[{0.0,0.5487982520029133},{13.0,1.4512017479970867},"RoundingRadius" -> 0]}],
+"DelayedMouseEffectStyle"],Function[StatusArea[Slot[1],13]],TagBoxNote -> "13"],StyleBox[
+"13",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[13,{}],"Tooltip"]]]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.616]]],RGBColor[0.762737,0.757717,0.654841]],TagBox[
+TooltipBox[TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,1.5487982520029133},
+{13.0,2.4512017479970867},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],13]],TagBoxNote -> "13"],StyleBox["13",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[13,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,2.5487982520029133},
+{12.0,3.4512017479970867},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,3.5487982520029133},
+{12.0,4.451201747997087},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,4.548798252002913},
+{12.0,5.451201747997087},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,5.548798252002913},
+{12.0,6.451201747997087},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,6.548798252002913},
+{12.0,7.451201747997087},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,7.548798252002913},
+{12.0,8.451201747997086},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,8.548798252002912},
+{12.0,9.451201747997086},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,9.548798252002912},
+{12.0,10.451201747997086},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,10.548798252002912},
+{12.0,11.451201747997086},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]},{Directive[EdgeForm[Directive[
+Thickness[Small],Opacity[0.616]]],RGBColor[0.45684,0.59295,0.506035]],TagBox[TooltipBox[
+TagBox[TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[
+0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{0.0,11.548798252002912},
+{12.0,12.451201747997086},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"],Function[
+StatusArea[Slot[1],12]],TagBoxNote -> "12"],StyleBox["12",{},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[12,{}],"Tooltip"]]]}}},{},{}},{},{InsetBox[FormBox[
+StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["13",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"13"],Function[Annotation[Slot[1],13,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.5,1.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[18]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[24]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[28]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{13.0,1.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["13",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"13"],Function[Annotation[Slot[1],13,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.5,2.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[2]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[5]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[10]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{13.0,2.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,3.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[24]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[36]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[41]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,3.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,4.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[24]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[28]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[37]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,4.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,5.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[23]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[26]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[38]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,5.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,6.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[22]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[26]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[30]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,6.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,7.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[19]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[31]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[33]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,7.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,8.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[19]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[21]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[36]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,8.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,9.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[16]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[18]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[20]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,9.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,10.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[11]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[19]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[34]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,10.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,11.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[9]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[27]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[41]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,11.0}],ImageScaled[
+{0,0.5}]],InsetBox[FormBox[StyleBox[TagBox[TooltipBox[PaneBox[StyleBox["12",HyphenationOptions -> {"HyphenationCharacter" -> "\[Ellipsis]"},
+LineIndent -> 0,StripOnInput -> False],ImageSizeAction -> "Clip",ImageSize -> {UpTo[
+60],20}],"12"],Function[Annotation[Slot[1],12,"Tooltip"]]],{},StripOnInput -> False],
+TraditionalForm],{6.0,12.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[DynamicModuleBox[
+{Set[Charting`ChartLabelingDump`g$$,Graphics[{{},{{Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[7]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{32.25,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[17]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}},ImageSize -> 60}],
+{96.75,-31.5},ImageScaled[{0.5,0.5}],{60,60.0}],Inset[Graphics[{RGBColor[0.9647058823529412,
+0.8196078431372549,0.5294117647058824],Disk[{0,0}],GrayLevel[0],Text[32]},{DisplayFunction -> Identity,ImagePadding -> {{2.8421709430404007*^-14,1.0},{1.0,0.0}}}],
+{161.25,-31.5},ImageScaled[{0.5,0.5}],{60.0,60.0}]}},{}},ImageSize -> 60,{PlotRangePadding -> {6,5}},
+ContentSelectable -> True,ImageSize -> 60]]},TagBox[TooltipBox[DynamicBox[ToBoxes[
+Pane[Charting`ChartLabelingDump`g$$,{UpTo[60],UpTo[60]},ImageSizeAction -> "ResizeToFit"],
+TraditionalForm]],DynamicBox[ToBoxes[Charting`noShow[Charting`ChartLabelingDump`g$$,
+ImageSize -> 225],TraditionalForm]]],Function[Annotation[Slot[1],Dynamic[Charting`noShow[
+Charting`ChartLabelingDump`g$$,ImageSize -> 225]],"Tooltip"]]],RuleDelayed[DynamicModuleValues,
+{}]],{},StripOnInput -> False],TraditionalForm],Offset[{6,0},{12.0,12.0}],ImageScaled[
+{0,0.5}]]},{},{},{StyleBox[{Antialiasing -> False,{Directive[Thickness[Tiny]],{LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IgYoKLIpDtwd8viyPS55p7KGxNBkTQcAqQIRPA=="]]},StyleBox[
+{},"GraphicsLabel",StripOnInput -> False]},StyleBox[{{Directive[Thickness[Tiny]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IgYoKJLo5os62P/QHiLPBiT809KKU0tSGYFMJpgyBokDUEYDIYMAYLwWfA=="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IgYoKPITj3/F/FzDASLPBiT809KKU0tSGYFMJpgyBokDUEYDIYMAPVsVhg=="]],{{},{},{},{},{},{},{},{},{},{},{},{},{},{}}},StyleBox[
+{},"GraphicsLabel",StripOnInput -> False]},"GraphicsTicks",StripOnInput -> False]},
+"GraphicsAxes",StripOnInput -> False]}},PlotRangePadding -> {{Scaled[0.02],Scaled[
+0.05]},{Scaled[0.02],Scaled[0.02]}},PlotRange -> {{0,15},{All,All}},ImageSize -> 450,
+Ticks -> {Automatic,None},AxesOrigin -> {0.0,0.31075018208302985},CoordinatesToolOptions -> CompressedData[
+"1:eJxTTMoPSmNiYGAoZgESPpnFJQheUGlOajA/kOGSWVyQk1jpVpqXXJKZn5fGCFLBASTgIqgmwOU9U1LzSjJLKhHyAYlFUHkQLzgnvyQTxAMT5OgDKUBzsTCQ4ZxfkJmaEpaYU5o6WF0NAFk5TEk="],
+GridLines -> {None,None},GridLinesStyle -> Directive[GrayLevel[0.5,0.4]],AspectRatio -> NCache[
+Power[GoldenRatio,-1],0.6180339887498948],AxesLabel -> {None,None},PlotLabel -> FormBox[
+FrameBox["\"Najcz\:0119\:015bciej losowane tr\[OAcute]jki liczb\"",StripOnInput -> False],
+TraditionalForm],FrameLabel -> {{None,None},{None,None}},Axes -> {True,False},FrameTicks -> {{Automatic,Automatic},{Automatic,Automatic}},
+DisplayFunction -> Identity,ExpressionUUID -> "303fa848-f818-4ae8-b78b-f3247b76ecc4"],
+StandardForm],"Output",ExpressionUUID -> "76c894dd-0e3d-4120-bdff-1f5d526aa878",CellLabel -> "Out[283]= "]},
+Open],ExpressionUUID -> "2708fd62-efcc-473b-ab31-49f067d2dd89"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{RowBox[{"kolo"," ","=",RowBox[{"ReverseSortBy","[",RowBox[
+{RowBox[{RowBox[{"Tally","[",RowBox[{"Table","[",RowBox[{RowBox[{"Sort","[",RowBox[
+{"Tally","[",RowBox[{"EvenQ","[",RowBox[{"wylos","[",RowBox[{"[","i","]"}],"]"}],"]"}],"]"}],"]"}],",",RowBox[
+{"{",RowBox[{"i",","," ","1",","," ",RowBox[{"Length","[","wylos","]"}]}],"}"}]}],"]"}],"]"}],"\n","/.",RowBox[
+{"{",RowBox[{RowBox[{"True","\[Rule]","P"}],",",RowBox[{"False","\[Rule]","NP"}]}],"}"}]}],",","Last"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"ilePileNP"," ","="," ",RowBox[{"kolo","[",RowBox[{"[",RowBox[{"All",",","2"}],"]"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"ile","=",RowBox[{"Flatten","[",RowBox[{"Join","[",RowBox[{RowBox[{"Table","[",RowBox[
+{RowBox[{"{",RowBox[{"StringJoin","[",RowBox[{RowBox[{"StringRiffle","[",RowBox[{RowBox[
+{"kolo","[",RowBox[{"[",RowBox[{"i",",","1"}],"]"}],"]"}],"[",RowBox[{"[","1","]"}],"]"}],"]"}],",","\", \"",",","\n",RowBox[
+{"StringRiffle","[",RowBox[{RowBox[{"kolo","[",RowBox[{"[",RowBox[{"i",",","1"}],"]"}],"]"}],"[",RowBox[
+{"[","2","]"}],"]"}],"]"}]}],"]"}],"}"}],",",RowBox[{"{",RowBox[{"i",",","1",",","4"}],"}"}]}],"]"}],",","\n",RowBox[
+{"Table","[",RowBox[{RowBox[{"StringRiffle","[",RowBox[{RowBox[{"kolo","[",RowBox[
+{"[",RowBox[{"i",",","1"}],"]"}],"]"}],"[",RowBox[{"[","1","]"}],"]"}],"]"}],",",RowBox[
+{"{",RowBox[{"i",",","5",",","6"}],"}"}]}],"]"}]}],"]"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"wartosci"," ","="," ",RowBox[{"Table","[",RowBox[{RowBox[{RowBox[{"Interpreter","[","\"Percent\"","]"}],"[",RowBox[
+{"N","[",RowBox[{RowBox[{"100","*",RowBox[{RowBox[{"ilePileNP","[",RowBox[{"[","i","]"}],"]"}],"/",RowBox[
+{"Total","[","ilePileNP","]"}]}]}],",","3"}],"]"}],"]"}],",","\n",RowBox[{"{",RowBox[
+{"i",",","1",",","6"}],"}"}]}],"]"}]}],";"}],RowBox[{"\n","\n"}],RowBox[{RowBox[{"czescD"," ","="," ",RowBox[
+{"PieChart","[",RowBox[{"ilePileNP",",",RowBox[{"ImageSize","\[Rule]","450"}],","," ",RowBox[
+{"ColorFunction","\[Rule]",RowBox[{"ColorData","[","\"LightTerrain\"","]"}]}],",","\n",RowBox[
+{"PlotLabel"," ","\[Rule]"," ",RowBox[{"Framed","[","\"Cz\:0119sto\:015b\[CAcute] parzystych(P) i nieparzystych(NP) liczb w losowaniu.\"","]"}]}],",","\n",RowBox[
+{"ChartLabels"," ","\[Rule]"," ",RowBox[{"{",RowBox[{"Placed","[",RowBox[{RowBox[
+{"{",RowBox[{"ile",",","wartosci"}],"}"}],",",RowBox[{"{",RowBox[{"\"VerticalCallout\"",",","\"RadialCenter\""}],"}"}]}],"]"}],"}"}]}],",","\n",RowBox[
+{"SectorOrigin"," ","\[Rule]"," ",RowBox[{"{",RowBox[{"Automatic",",","0.8"}],"}"}]}]}],"]"}]}],"\n"}]}],
+"Input",ExpressionUUID -> "02d1a872-ba54-4d24-aec5-cd683b71bef7",CellLabel -> "In[284]:= "],Cell[
+BoxData[
+GraphicsBox[{{},{},DynamicModuleBox[{Set[DynamicChart`click$129583$129683,False],Set[
+DynamicChart`click$129591$129683,False],Set[DynamicChart`click$129599$129683,False],Set[
+DynamicChart`click$129607$129683,False],Set[DynamicChart`click$129615$129683,False],Set[
+DynamicChart`click$129623$129683,False]},{{Directive[RGBColor[0.5,0.5,1.0],EdgeForm[
+Directive[GrayLevel[0],Opacity[0.5]]]],{{{{{{},{{Directive[EdgeForm[Directive[GrayLevel[
+0],Opacity[0.5]]],RGBColor[0.9,0.9,0.9]],TagBox[GeometricTransformationBox[TagBox[
+TagBox[TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],
+EdgeForm[{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[
+CompressedData["1:eJwB0QIu/SFib1JlAgAAACwAAAACAAAAx3YsUSOR1z8V4sbuErrmP3u5YFnRBtM/FtOOikfE5z9wb9XQUJzMP+PtNcSZlOg/mDnHalDlwj9D6+k8DinpP00AsUmVALI/ad8FZDuA6T8a5PLd6FR/v/eCq+dMmek/CCAVdG3mtb+aH9+5BXTpPzCewuQa0cS/crI6pcAQ6T+dgF3rS3zOv+Qazm9vcOg/VMqKtp7u079Y40aOmJTnP7jmKu+Lbti/dMj5bFN/5j/f10QV+LLcv3gV2ldDM+U/u8aARb9Y4L/H1cYNkbPjP6KTfHcyMOK/w43TDuMD4j9l+shmWdvjvyfDSbhUKOA/aQ4HvSNW5b/lHhWI2ErcP4H3CO32nOa/7FhZhx8A2D9LaLb5tqznvwKYWmTyetM/fAiyCM6C6L+nOwrlpozNP2Q2Tq4yHem/gbxAJXHbwz9oLHvjbHrpv+5fKSW987M/mpmZmZmZ6b9yxlPrCT2cPM3MzMzMzPy/QD++KKvErzz1kep/uqn8v+uLzsk0csY/MP0XBNlA/L8R1OhJ31bWP4tJyMknk/u/lMHV4B2f4D9UNe3YTaL6vwLr5bBQ6uU/cRaqypVw+b8JhER4IwDrPzbwpzToAPi/wsIXmTPU7z+yGaKTxFb2v4z7Uk9fLfI/FiZsxjh29L98/61wX0T0P5LfMC7XY/K/f7B/LwMq9j9tufaLqyTwvyZY1cKr2fc/j0MQbV1867+DAZnaPU/5P54jXI1ybOa/wr8PoCuH+j9YmGS06iXhv0Dex119fvs//PFaQT5r17/ACOK52DL8PwjElyI7o8i/jQMbcYai/D9PoNj8wp+Rv1XzoIR2zPw/VyDn8qdAxD9Wm4bQQrD8P9IgIHj6QdU/qyiHBDBO/D+vDnh17RfgP5+rvPwsp/s/qtCMhKtn5T94reB70Lz6P58FUrtHg+o/WL6fTFWR+T840YKk"]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],1569]],TagBoxNote -> "1569"],
+StyleBox["1569",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[1569,
+{}],"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129583$129683,
+FEPrivate`Not[DynamicChart`click$129583$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129583$129683,{{{1.0,0.0},{0.0,1.0}},{-0.10389495681872561,0.17089715605484823}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129583$129683}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.8988585864661655,0.8985643308270677,0.8860816842105264]],TagBox[GeometricTransformationBox[
+TagBox[TagBox[TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],
+EdgeForm[{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[
+CompressedData["1:eJwB0QIu/SFib1JlAgAAACwAAAACAAAAL+LxEiU63z/ILwrYj0nkv4+k4O+BeuE/q3GP21204r/P6ls9Fy/jP24UADR08+C/TNQZCda25D8Qqss22BXev6AbkbYqDuY/kgasynb+2b8AT4bR8jHnP+QWZCRUqtW/DnSXYYQf6D8h+q5EjiPRv+uBLSS01Og/wRt4DXPpyL/qOkae2k/pP2ffLZgfo76/NyA9+teP6T+4lLNLe1emv3AciqgWlOk/I9mPhoDLoD+dg1G9jFzpPxX6RaSd47s/q2OUB7zp6D9MgeruJZDHP53yyuGwPOg/g6+6KrV70D+qOK6+/1bnP1Sn0M3QCNU/4evqd8E65j/4bAu3wmTZPxjoXmeO6uQ/V4DjpFqF3T8U91VWeGnjPzyZEYd5sOA/gh/zUAO74T/BUO3WQ3fiPzAjFt06xt8/rMQzS+US5D8K70hEK8zbP3mnJ82bf+U/x3YsUSOR1z8V4sbuErrmP58FUrtHg+o/WL6fTFWR+T/rDNKssEXvP2iczEaPL/g/y3NcHIHf8T9BPZr0QZX2P3KDEbtj8vM/2frKUSzG9D/3tSBhp9b1P2TM87eIxvI/G8VKNOCH9z8x+L/8ApvwP11J6KYZAvk/ltrsDVuR7D+//4O230H6Pz68iufqqec/8VAE/kZE+z90BRLQK4viPyDwhojzBvw/dtHHrCqC2j8RtPtUHoj8P1i5zlgRYM8//V+bfZnG/D9I1GGX8OSyPz3EhPnSwfw/TgcqtWoiub9HAg/y1Xn8P6rNmcXBO9G/KDKzqErv+z85HydvoQbcv49iyu10I/s/ZdlEDQBI47/gGLcrMRj6P8GZ8KieX+i/FD9jDfDP+D9khwGkRT7tv9UOPcqwTfc/qY/Snkns8L8paAcl+pT1P/sWgLriEfO/IbncLdKp8z/gXwGX6Qr1vzoPqNq0kPE/wHUL08HS9r+4eXsL"]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],1537]],TagBoxNote -> "1537"],
+StyleBox["1537",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[1537,
+{}],"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129591$129683,
+FEPrivate`Not[DynamicChart`click$129591$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129591$129683,{{{1.0,0.0},{0.0,1.0}},{0.19921182729147696,0.017738316357274783}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129591$129683}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.6845335413533834,0.688890954887218,0.5234328796992481]],TagBox[GeometricTransformationBox[
+TagBox[TagBox[TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],
+EdgeForm[{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[
+CompressedData["1:eJwBcQGO/iFib1JlAgAAABYAAAACAAAAZZX++MHLz7/jS6OXqVXovx3w43DoM8a/FTky17H96L/trhGI38y4v4bbPRZfaem/GCd+WSTYk7+MX0BIrZfpv8XrADaR2a0/gPtJmCyI6b+WPAlix1XBP8ZdFncCO+m/EEQV1UwLyz8EsaBA6bDov9FIq/LAP9I/E5cQei7r57+A2FvHyM3WP7ISP6yv6+a/h6VL170k2z/8rmzi1bTlvzDi8RIlOt8/yC8K2I9J5L86D6jatJDxP8B1C9PB0va/Nxo1klWJ7j/cRLqecGv4v5BTR+CBp+k/CPXGoSXJ+b/nsQARuYfkP/apUkmU6Pq/i+y3b7Zs3j8mx7RoBsf7vyhkSk6AgNM/fin5xWJi/L+QhGCuYcrAP/A6Uysyufy/NOyt5ChTpr99a0jxosr8v8vkE3l75su/9pYF+YqW/L8hbgB/ZfrYvziAGBJoHfy/CTQPHJ3i4b9ftZfKXmD7vxFixv0="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],744]],TagBoxNote -> "744"],
+StyleBox["744",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[744,{}],
+"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129599$129683,
+FEPrivate`Not[DynamicChart`click$129599$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129599$129683,{{{1.0,0.0},{0.0,1.0}},{0.03385756561021328,-0.19711333098233133}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129599$129683}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.6768111954887218,0.6834331503759399,0.520708067669173]],TagBox[GeometricTransformationBox[
+TagBox[TagBox[TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],
+EdgeForm[{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[
+CompressedData["1:eJwBcQGO/iFib1JlAgAAABYAAAACAAAAaTLKcYJs6L+Km0hDea7Ov0G4jUnblee/UgS2cabo079pK5Ijqojmv/rOMrgGTNi/nAQye11H5b/ld8TAN3fcv834LErc1OO/iJ6B4Uow4L+/0pdSfzTivwe9fZaK/+G/z7GvYQlq4L+ietzGK6Xjv//t6zo989y/Lva8d18d5b9QZ2Lidc/Yv8DeZLq/ZOa/OezvXU9y1L/CJOSHV3jnv2WV/vjBy8+/40ujl6lV6L8JNA8cneLhv1+1l8peYPu/wOmtSZkA579aqeB4Ymf6vzq0rp5k6eu/mHqxsVcx+b/itSRx0kjwv/KUtGYLwfe/CKjljUp38r/2Cbg/0Rn2vxfN6jwPe/S/qHRN6Xs/9L/nl3LTd0/2v1nSsT1UNvK/MUWYKknw979tg25cDwPwv9ZwBGi/Wfm/2Sg5j4dV679Jb7+yloj6v9zE7D+7Zea/tngDwBJ6+79+19g1JELhv+a40jk="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],728]],TagBoxNote -> "728"],
+StyleBox["728",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[728,{}],
+"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129607$129683,
+FEPrivate`Not[DynamicChart`click$129607$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129607$129683,{{{1.0,0.0},{0.0,1.0}},{-0.14222709210266335,-0.1406110033817429}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129607$129683}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.5451528421052632,0.7574826842105263,0.821859]],TagBox[GeometricTransformationBox[
+TagBox[TagBox[TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],
+EdgeForm[{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[
+CompressedData["1:eJwBcQCO/yFib1JlAgAAAAYAAAACAAAArpRDyuZa6b+1I0AV5UK8v/zTwvOt+ei/sANQ9r17xr9pMspxgmzov4qbSEN5rs6/tngDwBJ6+79+19g1JELhv3wuO7LjGPy/JQQatTVL2b9DB4yjQ4b8vywo6LdBy8+/Ybs3lg=="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],127]],TagBoxNote -> "127"],
+StyleBox["127",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[127,{}],
+"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129615$129683,
+FEPrivate`Not[DynamicChart`click$129615$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129615$129683,{{{1.0,0.0},{0.0,1.0}},{-0.1951196136703003,-0.043912826840830525}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129615$129683}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.54938,0.772213,0.848103]],TagBox[GeometricTransformationBox[TagBox[TagBox[
+TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData[
+"1:eJxTTMoPSmViYGBgA2IQPWsmCLzcX3Qs+DWn7Zw9uvsjxV50vtzfb+X2xClkzf51U5xPPYt6uX+rsoPoU6c9+53ZexY7t/3Zr6PxYrvj6fP7hb+rSKru/rP/AeN5h9P39u8/ewYE/ux3sN+nsfrI+j0A3AQ4uw=="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],106]],TagBoxNote -> "106"],
+StyleBox["106",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[106,{}],
+"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129623$129683,
+FEPrivate`Not[DynamicChart`click$129623$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129623$129683,{{{1.0,0.0},{0.0,1.0}},{-0.19952107516609757,-0.013832590667133072}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129623$129683}]]],
+"DelayedClickEffect"]}}}}},{}},{{}}}},{{{{TagBox[GeometricTransformationBox[TagBox[
+TagBox[TooltipBox[TagBox[{{},{{{},{{{Directive[Thickness[0.002],Opacity[1],GrayLevel[
+0.5]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8okkrfi79/vrt/qKYa4ovPs/+YY8mv01GLON3yYf9Rf/ndW/6JPjbHgA0hB9p"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8om0yYhm/Sz7sL/o/r3vTJ8Hf9mjy69wfVoms+4+QBwDmJB3q"]]},{Directive[
+Opacity[1],GrayLevel[0.5]],DiskBox[{-0.9350546113685303,1.538074404493634},0.03]},InsetBox[
+FormBox[StyleBox["\"NP 3, P 2\"",{},StripOnInput -> False],TraditionalForm],{-2.052,1.6918818449429975},
+{1,0}]}}},{InsetBox[FormBox[StyleBox[TemplateBox[{"32.6127624194554146747`3.","\"%\"","percent","\"Percent\""},
+"QuantityPostfixTF",SyntaxForm -> Mod],{},StripOnInput -> False],TraditionalForm],
+{-0.6753172193217163,1.1108315143565135}]}}},Function[StatusArea[Slot[1],1569]],TagBoxNote -> "1569"],
+StyleBox["1569",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[1569,
+{}],"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129583$129683,
+FEPrivate`Not[DynamicChart`click$129583$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129583$129683,{{{1.0,0.0},{0.0,1.0}},{-0.10389495681872561,0.17089715605484823}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129583$129683}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{{{Directive[Thickness[0.002],Opacity[1],GrayLevel[0.5]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8oqlXvVfvW//Hvujg94dcdvlH7NHkwy9adsr1/bcvCok9eiO26pg9ANabG9c="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ovCLlp1yff/ti0Jij96IrTpmjya/zv1hlcg6JHkAnbQa9g=="]]},{Directive[
+Opacity[1],GrayLevel[0.5]],DiskBox[{1.7929064456232926,0.15964484721547303},0.03]},InsetBox[
+FormBox[StyleBox["\"NP 2, P 3\"",{},StripOnInput -> False],TraditionalForm],{2.052,0.17560933193702033},
+{-1,0}]}}},{InsetBox[FormBox[StyleBox[TemplateBox[{"31.9476200374142589898`3.","\"%\"","percent","\"Percent\""},
+"QuantityPostfixTF",SyntaxForm -> Mod],{},StripOnInput -> False],TraditionalForm],
+{1.2948768773946002,0.11529905632228607}]}}},Function[StatusArea[Slot[1],1537]],TagBoxNote -> "1537"],
+StyleBox["1537",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[1537,
+{}],"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129591$129683,
+FEPrivate`Not[DynamicChart`click$129591$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129591$129683,{{{1.0,0.0},{0.0,1.0}},{0.19921182729147696,0.017738316357274783}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129591$129683}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{{{Directive[Thickness[0.002],Opacity[1],GrayLevel[0.5]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8Io0UL7+Ghsv2RXWaP48mJf3ZjyYfv1Au7EDxVfuiJWu1Hdgs/+8HAI0CGgw="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8oviFcmEHiq/aFy1Zq+3AZvl/P5r8OveHVSLr/iPkAYSjGfs="]]},{Directive[
+Opacity[1],GrayLevel[0.5]],DiskBox[{0.30471809049191956,-1.774019978840982},0.03]},InsetBox[
+FormBox[StyleBox["\"NP 4, P 1\"",{},StripOnInput -> False],TraditionalForm],{2.052,-1.9514219767250802},
+{-1,0}]}}},{InsetBox[FormBox[StyleBox[TemplateBox[{"15.4645603824568696737`3.","\"%\"","percent","\"Percent\""},
+"QuantityPostfixTF",SyntaxForm -> Mod],{},StripOnInput -> False],TraditionalForm],
+{0.22007417646638636,-1.2812366513851539}]}}},Function[StatusArea[Slot[1],744]],TagBoxNote -> "744"],
+StyleBox["744",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[744,{}],
+"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129599$129683,
+FEPrivate`Not[DynamicChart`click$129599$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129599$129683,{{{1.0,0.0},{0.0,1.0}},{0.03385756561021328,-0.19711333098233133}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129599$129683}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{{{Directive[Thickness[0.002],Opacity[1],GrayLevel[0.5]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IvGzr2z4q7/sL1pR4vuy2v7LfjT5syLn+2Pbv+0vejPTWuqq67f9AMuuHQU="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8orMi5/tj27/tL3oz01rqquu3/Wjy69wfVoms+4+QBwDi2h14"]]},{Directive[
+Opacity[1],GrayLevel[0.5]],DiskBox[{-1.2800438289239702,-1.2654990304356861},0.03]},InsetBox[
+FormBox[StyleBox["\"NP 1, P 4\"",{},StripOnInput -> False],TraditionalForm],{-2.052,-1.3920489334792547},
+{1,0}]}}},{InsetBox[FormBox[StyleBox[TemplateBox[{"15.1319891914362918312`3.","\"%\"","percent","\"Percent\""},
+"QuantityPostfixTF",SyntaxForm -> Mod],{},StripOnInput -> False],TraditionalForm],
+{-0.9244760986673118,-0.9139715219813289}]}}},Function[StatusArea[Slot[1],728]],TagBoxNote -> "728"],
+StyleBox["728",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[728,{}],
+"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129607$129683,
+FEPrivate`Not[DynamicChart`click$129607$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129607$129683,{{{1.0,0.0},{0.0,1.0}},{-0.14222709210266335,-0.1406110033817429}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129607$129683}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{{{Directive[Thickness[0.002],Opacity[1],GrayLevel[0.5]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8oho9602PJf7sL1Jlkdpq6n1zP5r8bp+SVbov/u0v6mdhFtl96fZ+AIT9GqM="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ot0+Jat0X/zbX9TPwiyy+9Lt/Wjy69wfVoms+4+QBwC94Rvn"]]},{Directive[
+Opacity[1],GrayLevel[0.5]],DiskBox[{-1.7560765230327027,-0.39521544156747473},0.03]},InsetBox[
+FormBox[StyleBox["\"NP 5\"",{},StripOnInput -> False],TraditionalForm],{-2.052,-0.4347369857242222},
+{1,0}]}}},{InsetBox[FormBox[StyleBox[TemplateBox[{"2.6397838287258366244`3.","\"%\"","percent","\"Percent\""},
+"QuantityPostfixTF",SyntaxForm -> Mod],{},StripOnInput -> False],TraditionalForm],
+{-1.268277488856952,-0.28543337446539846}]}}},Function[StatusArea[Slot[1],127]],TagBoxNote -> "127"],
+StyleBox["127",{},StripOnInput -> False]],Function[Annotation[Slot[1],Style[127,{}],
+"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[DynamicChart`click$129615$129683,
+FEPrivate`Not[DynamicChart`click$129615$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129615$129683,{{{1.0,0.0},{0.0,1.0}},{-0.1951196136703003,-0.043912826840830525}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129615$129683}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{{{Directive[Thickness[0.002],Opacity[1],GrayLevel[0.5]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IuHvKpKqu//sL3rAeN7h9L39+9Hkp9y5fW7FrP/7ixbdKjQIaz+4HwDV5R4K"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8oil3bp9bMev//qJFtwoNwtoP7keTX+f+sEpkHZI8ABYuHls="]]},{Directive[
+Opacity[1],GrayLevel[0.5]],DiskBox[{-1.795689676494878,-0.12449331600419766},0.03]},InsetBox[
+FormBox[StyleBox["\"P 5\"",{},StripOnInput -> False],TraditionalForm],{-2.052,-0.13694264760461744},
+{1,0}]}}},{InsetBox[FormBox[StyleBox[TemplateBox[{"2.2032841405113282062`3.","\"%\"","percent","\"Percent\""},
+"QuantityPostfixTF",SyntaxForm -> Mod],{},StripOnInput -> False],TraditionalForm],
+{-1.2968869885796341,-0.08991183933636498}]}}},Function[StatusArea[Slot[1],106]],
+TagBoxNote -> "106"],StyleBox["106",{},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[106,{}],"Tooltip"]]],EventHandlerTag[{RuleDelayed["MouseClicked",FEPrivate`Set[
+DynamicChart`click$129623$129683,FEPrivate`Not[DynamicChart`click$129623$129683]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$129623$129683,{{{1.0,0.0},{0.0,1.0}},{-0.19952107516609757,-0.013832590667133072}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$129623$129683}]]],
+"DelayedClickEffect"]},{}}},{}},{},{}},RuleDelayed[DynamicModuleValues,{}]],{{{},{}}},{{{{},{},{},{}}},{}}},
+PlotRangePadding -> Scaled[0.05],GridLinesStyle -> Directive[GrayLevel[0.5,0.4]],
+PlotRange -> {{-2.3400000000000003,2.3400000000000003},{-2.3400000000000003,2.3400000000000003}},
+ImageSize -> 450,PlotLabel -> FormBox[FrameBox["\"Cz\:0119sto\:015b\[CAcute] parzystych(P) i nieparzystych(NP) liczb w losowaniu.\"",
+StripOnInput -> False],TraditionalForm],ContentSelectable -> False,DisplayFunction -> Identity,
+ExpressionUUID -> "232d752b-97bb-4965-9863-99e1984e2e48"],StandardForm],"Output",
+ExpressionUUID -> "7d9b8f95-82a3-4967-bcc1-7b26b190cf3a",CellLabel -> "Out[288]= "]},
+Open],ExpressionUUID -> "e5354285-74e7-4bde-8f5d-eaf0b343aa39"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{RowBox[{"calosc"," ","="," ",RowBox[{"Graphics","[",RowBox[
+{"GraphicsGrid","[",RowBox[{RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"czescA",",","czescB"}],"}"}],",",RowBox[
+{"{",RowBox[{"czescC",",","czescD"}],"}"}]}],"}"}],",","\n",RowBox[{"Background","\[Rule]",RowBox[
+{"{",RowBox[{RowBox[{"{",RowBox[{RowBox[{"RGBColor","[","\"#f5eee0\"","]"}],",","White"}],"}"}],",",RowBox[
+{"{",RowBox[{"White",",",RowBox[{"RGBColor","[","\"#f5eee0\"","]"}]}],"}"}]}],"}"}]}],",","\n",RowBox[
+{"Dividers","\[Rule]",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"2","\[Rule]",RowBox[
+{"RGBColor","[","\"#f3d997\"","]"}]}],"}"}],",",RowBox[{"{",RowBox[{"2","\[Rule]",RowBox[
+{"RGBColor","[","\"#f3d997\"","]"}]}],"}"}]}],"}"}]}]}],"]"}],"]"}]}],";"}],RowBox[
+{"\n","\n"}],RowBox[{"CloudExport","[",RowBox[{"calosc",",","\"PDF\"",",","\"minilotto.pdf\""}],"]"}]}],
+"Input",ExpressionUUID -> "fa6b97e4-ecc3-409e-b0f6-f9a1163f5045",CellLabel -> "In[311]:= "],Cell[
+BoxData[
+TagBox[InterpretationBox[RowBox[{"CloudObject","[",TemplateBox[{"\"https://www.wolframcloud.com/obj/wysieckaola/minilotto.pdf\"","https://www.wolframcloud.com/obj/wysieckaola/minilotto.pdf"},
+"HyperlinkURL"],"]"}],CloudObject["https://www.wolframcloud.com/obj/wysieckaola/minilotto.pdf"]],
+"RawBoxes"],StandardForm],"Output",ExpressionUUID -> "fcd326c8-af6f-4bf9-9b4a-5704f413385c",
+CellLabel -> "Out[312]= "]},Open],ExpressionUUID -> "2ff688b1-4080-4dd2-b011-ae42bf0d33db"]},
+StyleDefinitions -> "Default.nb",FrontEndVersion -> "12. for Wolfram Cloud 1.53.0.1 (November 5, 2019)"]
